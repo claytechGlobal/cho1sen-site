@@ -1,0 +1,769 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="Cho1sen Healing Center: the 90-Day Healing Journal, gift sets and donations supporting women and children coming from domestic violence situations.">
+<title>Cho1sen Healing Shop</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=Pinyon+Script&family=Nunito+Sans:opsz,wght@6..12,400;6..12,600;6..12,700&display=swap">
+<style>
+/* Layout: a velvet-dark boutique. Full-bleed brand banner, then shelf-like product rows, script-lettered affirmations as dividers. Single dark look by design (the brand is black, plum, gold, pink). */
+:root{
+  color-scheme: dark;
+  --ink:#0f0711;        /* page ground, plum-black */
+  --velvet:#1d0c21;     /* raised surface */
+  --plum:#3a1240;       /* deep accent surface */
+  --gold:#e0bd73;       /* metal, headings, prices */
+  --gold-dim:#a8874a;
+  --pink:#ec4f9f;       /* call to action */
+  --lilac:#c99ae0;
+  --fg:#f7edf4;
+  --muted:#c4adbf;
+  --line:rgba(224,189,115,.22);
+  --display:"Cinzel", "Trajan Pro", Georgia, serif;
+  --script:"Pinyon Script", "Snell Roundhand", cursive;
+  --body:"Nunito Sans", "Segoe UI", system-ui, sans-serif;
+  --r:14px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--ink);color:var(--fg);font-family:var(--body);font-size:16px;line-height:1.6;
+  background-image:radial-gradient(1200px 500px at 85% -10%, rgba(236,79,159,.14), transparent 60%),radial-gradient(900px 500px at -10% 30%, rgba(201,154,224,.08), transparent 60%);}
+a{color:inherit}
+img{max-width:100%;display:block}
+button{font:inherit;cursor:pointer}
+:focus-visible{outline:2px solid var(--gold);outline-offset:3px}
+.wrap{max-width:1180px;margin-inline:auto;padding-inline:20px}
+h1,h2,h3{font-family:var(--display);font-weight:600;line-height:1.15;text-wrap:balance;margin:0;letter-spacing:.02em}
+h2{font-size:clamp(1.6rem,3.4vw,2.4rem);color:var(--gold)}
+h3{font-size:1.1rem}
+p{margin:0}
+.script{font-family:var(--script);font-weight:400;color:var(--pink);letter-spacing:0;line-height:1}
+.eyebrow{font-family:var(--display);font-size:.78rem;letter-spacing:.22em;text-transform:uppercase;color:var(--lilac)}
+.one{color:var(--pink)}
+
+/* safety bar */
+.safety{background:var(--plum);border-bottom:1px solid var(--line);font-size:.86rem;color:var(--fg)}
+.safety .wrap{display:flex;flex-wrap:wrap;gap:6px 18px;align-items:center;justify-content:space-between;padding-block:8px}
+.safety strong{color:var(--gold)}
+.exit{background:var(--fg);color:var(--ink);border:0;border-radius:999px;padding:6px 14px;font-weight:700;font-size:.82rem;text-decoration:none;white-space:nowrap}
+.exit:hover{background:var(--gold)}
+
+/* header */
+header.site{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:rgba(15,7,17,.88);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+header.site .wrap{display:flex;align-items:center;gap:20px;padding-block:12px}
+.logo{display:flex;flex-direction:column;text-decoration:none;line-height:1}
+.logo b{font-family:var(--display);font-size:1.6rem;color:var(--gold);font-weight:700;letter-spacing:.04em}
+.logo small{font-family:var(--display);font-size:.6rem;letter-spacing:.3em;color:var(--muted);margin-top:4px}
+nav.main{display:flex;gap:4px;margin-left:auto;flex-wrap:wrap}
+nav.main a{font-family:var(--display);font-size:.8rem;letter-spacing:.14em;text-transform:uppercase;text-decoration:none;color:var(--muted);padding:8px 12px;border-radius:999px}
+nav.main a:hover,nav.main a[aria-current="page"]{color:var(--fg);background:var(--velvet)}
+.cart-btn{display:flex;align-items:center;gap:8px;background:transparent;border:1px solid var(--gold-dim);color:var(--gold);border-radius:999px;padding:8px 14px;font-family:var(--display);font-size:.8rem;letter-spacing:.12em}
+.cart-btn .count{background:var(--pink);color:#fff;border-radius:999px;min-width:22px;height:22px;display:inline-grid;place-items:center;font-family:var(--body);font-size:.75rem;font-weight:700;padding-inline:6px}
+@media (max-width:760px){
+  header.site .wrap{flex-wrap:wrap;gap:10px}
+  nav.main{order:3;width:100%;margin-left:0;justify-content:space-between}
+  nav.main a{padding:6px 8px;font-size:.7rem;letter-spacing:.08em}
+  .cart-btn{margin-left:auto}
+}
+
+/* buttons */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;border-radius:999px;padding:12px 24px;font-family:var(--display);font-size:.85rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;text-decoration:none;border:1px solid transparent;transition:transform .15s, background .15s}
+.btn:hover{transform:translateY(-1px)}
+.btn-pink{background:var(--pink);color:#fff}
+.btn-pink:hover{background:#f369b0}
+.btn-gold{background:linear-gradient(180deg,#f1d592,var(--gold) 55%,#b98f43);color:#26101f}
+.btn-ghost{border-color:var(--gold-dim);color:var(--gold);background:transparent}
+.btn-ghost:hover{background:rgba(224,189,115,.08)}
+
+section{padding-block:clamp(48px,7vw,84px)}
+.sec-head{display:flex;flex-wrap:wrap;align-items:end;justify-content:space-between;gap:16px;margin-bottom:32px}
+.sec-head p{color:var(--muted);max-width:52ch}
+
+/* hero */
+.hero{padding-block:24px 0}
+.banner{border-radius:var(--r);overflow:hidden;border:1px solid var(--line);box-shadow:0 30px 80px -30px rgba(236,79,159,.35)}
+.hero-copy{display:grid;grid-template-columns:1.3fr 1fr;gap:32px;align-items:center;padding-block:36px 8px}
+.hero-copy h1{font-size:clamp(2rem,4.6vw,3.4rem);color:var(--fg)}
+.hero-copy h1 em{font-style:normal;color:var(--gold)}
+.hero-copy .lede{color:var(--muted);font-size:1.08rem;max-width:56ch;margin-top:14px}
+.hero-ctas{display:flex;flex-wrap:wrap;gap:12px;margin-top:22px}
+.affirm{text-align:center;border-left:1px solid var(--line);padding-left:24px}
+.affirm .script{font-size:clamp(2.2rem,4vw,3.2rem);display:block}
+.affirm small{display:block;margin-top:10px;color:var(--muted);font-size:.85rem}
+@media (max-width:820px){.hero-copy{grid-template-columns:1fr}.affirm{border-left:0;border-top:1px solid var(--line);padding:20px 0 0}}
+
+/* product grid */
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:22px}
+.card{background:var(--velvet);border:1px solid var(--line);border-radius:var(--r);overflow:hidden;display:flex;flex-direction:column;min-width:0;transition:border-color .2s, transform .2s}
+.card:hover{border-color:var(--gold-dim);transform:translateY(-3px)}
+.card .media{position:relative;aspect-ratio:1/1;background:#000;overflow:hidden;max-width:100%}
+.card .media img{width:100%;height:100%;object-fit:cover;transition:transform .5s}
+.card:hover .media img{transform:scale(1.04)}
+.badge{position:absolute;top:12px;left:12px;background:var(--ink);color:var(--gold);border:1px solid var(--gold-dim);font-family:var(--display);font-size:.66rem;letter-spacing:.16em;text-transform:uppercase;padding:5px 10px;border-radius:999px}
+.badge.pink{background:var(--pink);color:#fff;border-color:transparent}
+.card .body{padding:18px;display:flex;flex-direction:column;gap:8px;flex:1}
+.card .cat{font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;color:var(--lilac)}
+.card h3 a{text-decoration:none}
+.card h3 a:hover{color:var(--gold)}
+.card .blurb{color:var(--muted);font-size:.92rem}
+.card .foot{margin-top:auto;padding-top:12px;display:flex;align-items:center;justify-content:space-between;gap:10px}
+.price{font-family:var(--display);font-size:1.35rem;color:var(--gold);font-variant-numeric:tabular-nums}
+.price.note{font-family:var(--body);font-size:.85rem;color:var(--muted)}
+.add{background:var(--pink);color:#fff;border:0;border-radius:999px;padding:9px 16px;font-family:var(--display);font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;font-weight:600}
+.add:hover{background:#f369b0}
+.add.ghost{background:transparent;border:1px solid var(--gold-dim);color:var(--gold)}
+
+/* journey steps */
+.journey{background:linear-gradient(180deg,var(--plum),var(--velvet));border-block:1px solid var(--line)}
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:0;counter-reset:s}
+.step{padding:8px 22px;border-left:1px solid var(--line);min-width:0}
+.step:first-child{border-left:0}
+.step .n{font-family:var(--display);font-size:.75rem;letter-spacing:.2em;color:var(--lilac)}
+.step .script{font-size:2.6rem;color:var(--gold);display:block;margin:6px 0 8px}
+.step p{color:var(--muted);font-size:.93rem}
+@media (max-width:820px){.steps{grid-template-columns:1fr 1fr;row-gap:26px}.step:nth-child(3){border-left:0}}
+@media (max-width:460px){.steps{grid-template-columns:1fr}.step{border-left:0;border-top:1px solid var(--line);padding-top:18px}.step:first-child{border-top:0}}
+
+/* jacket spotlight */
+.spot{display:grid;grid-template-columns:1.25fr 1fr;gap:36px;align-items:center}
+.spot .pics{display:grid;grid-template-columns:3fr 1fr;gap:12px}
+.spot .pics img{border-radius:var(--r);border:1px solid var(--line);height:100%;object-fit:cover}
+.spot ul{list-style:none;padding:0;margin:18px 0 24px;display:grid;gap:8px;color:var(--muted)}
+.spot li::before{content:"♥";color:var(--pink);margin-right:10px;font-size:.8rem}
+@media (max-width:820px){.spot{grid-template-columns:1fr}}
+
+/* mission */
+.pillars{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line);border:1px solid var(--line);border-radius:var(--r);overflow:hidden}
+.pillar{background:var(--ink);padding:24px 20px;min-width:0}
+.pillar svg{width:30px;height:30px;stroke:var(--gold);fill:none;stroke-width:1.4}
+.pillar h3{font-size:.95rem;margin:12px 0 6px;color:var(--fg)}
+.pillar p{color:var(--muted);font-size:.9rem}
+@media (max-width:900px){.pillars{grid-template-columns:1fr 1fr}}
+@media (max-width:460px){.pillars{grid-template-columns:1fr}}
+
+/* founder */
+.founder{display:grid;grid-template-columns:1fr 1.2fr;gap:40px;align-items:center}
+.founder img{border-radius:var(--r);border:1px solid var(--line)}
+.founder .sig{font-family:var(--script);font-size:2.4rem;color:var(--gold);margin-top:18px}
+.founder p+p{margin-top:14px}
+.founder .text p{color:var(--muted);max-width:60ch}
+@media (max-width:820px){.founder{grid-template-columns:1fr}}
+
+/* no abuse callout */
+.callout{border:1px solid var(--pink);border-radius:var(--r);padding:clamp(24px,4vw,44px);display:grid;grid-template-columns:auto 1fr;gap:28px;align-items:center;background:linear-gradient(120deg,rgba(236,79,159,.14),rgba(58,18,64,.4))}
+.callout .big{font-family:var(--display);font-size:clamp(1.8rem,4vw,2.8rem);color:var(--fg);line-height:1.05}
+.callout ul{margin:0;padding:0;list-style:none;display:grid;gap:10px}
+.callout li{display:flex;flex-wrap:wrap;gap:4px 12px;align-items:baseline}
+.callout li b{font-family:var(--display);color:var(--gold);font-size:1.05rem;letter-spacing:.04em;font-variant-numeric:tabular-nums}
+.callout li span{color:var(--muted);font-size:.9rem}
+@media (max-width:760px){.callout{grid-template-columns:1fr}}
+
+/* shop toolbar */
+.toolbar{display:flex;flex-wrap:wrap;gap:12px;align-items:center;justify-content:space-between;margin-bottom:26px}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{background:transparent;border:1px solid var(--line);color:var(--muted);border-radius:999px;padding:8px 16px;font-size:.85rem}
+.chip[aria-pressed="true"]{background:var(--gold);color:#26101f;border-color:var(--gold);font-weight:700}
+select{background:var(--velvet);color:var(--fg);border:1px solid var(--line);border-radius:999px;padding:9px 14px;font:inherit;font-size:.85rem}
+
+/* product detail */
+.pd{display:grid;grid-template-columns:1fr 1fr;gap:44px;align-items:start}
+.pd .gallery img{border-radius:var(--r);border:1px solid var(--line);width:100%}
+.pd .info{display:flex;flex-direction:column;gap:14px;min-width:0}
+.pd h1{font-size:clamp(1.8rem,3.6vw,2.6rem);color:var(--fg)}
+.pd .price{font-size:1.8rem}
+.pd .desc{color:var(--muted)}
+.pd h4{font-family:var(--display);font-size:.8rem;letter-spacing:.18em;text-transform:uppercase;color:var(--lilac);margin:10px 0 0}
+.incl{list-style:none;padding:0;margin:0;display:grid;grid-template-columns:1fr 1fr;gap:8px 18px}
+.incl li{display:flex;gap:10px;font-size:.95rem}
+.incl li::before{content:"";flex:none;width:8px;height:8px;margin-top:.55em;transform:rotate(45deg);background:var(--gold)}
+.opts{display:flex;flex-wrap:wrap;gap:16px}
+.opt{display:flex;flex-direction:column;gap:6px;font-size:.85rem;color:var(--muted)}
+.qty{display:inline-flex;align-items:center;border:1px solid var(--line);border-radius:999px;overflow:hidden}
+.qty button{background:transparent;border:0;color:var(--fg);width:38px;height:40px;font-size:1.1rem}
+.qty button:hover{background:var(--velvet)}
+.qty span{min-width:30px;text-align:center;font-variant-numeric:tabular-nums}
+.buy{display:flex;flex-wrap:wrap;gap:12px;align-items:center;margin-top:6px}
+.back{color:var(--muted);text-decoration:none;font-size:.9rem;display:inline-block;margin-bottom:22px}
+.back:hover{color:var(--gold)}
+@media (max-width:820px){.pd{grid-template-columns:1fr}.incl{grid-template-columns:1fr}}
+
+/* cart drawer */
+.scrim{position:fixed;inset:0;background:rgba(5,2,6,.6);z-index:40}
+.drawer{position:fixed;top:0;right:0;bottom:0;width:min(420px,100%);background:var(--velvet);border-left:1px solid var(--line);z-index:41;display:flex;flex-direction:column;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+.drawer header{display:flex;justify-content:space-between;align-items:center;padding:20px;border-bottom:1px solid var(--line)}
+.drawer header h2{font-size:1.3rem}
+.x{background:transparent;border:0;color:var(--muted);font-size:1.6rem;line-height:1}
+.lines{flex:1;overflow:auto;padding:12px 20px;display:flex;flex-direction:column;gap:14px}
+.line{display:grid;grid-template-columns:64px 1fr auto;gap:12px;align-items:center}
+.line img{width:64px;height:64px;object-fit:cover;border-radius:10px;border:1px solid var(--line)}
+.line .nm{font-weight:700;font-size:.92rem}
+.line .vr{color:var(--muted);font-size:.8rem}
+.line .qty button{width:30px;height:30px}
+.line .rm{background:transparent;border:0;color:var(--muted);font-size:.78rem;text-decoration:underline;padding:0;margin-top:4px}
+.line .lp{font-family:var(--display);color:var(--gold);font-variant-numeric:tabular-nums}
+.empty{color:var(--muted);text-align:center;padding:40px 10px}
+.empty .script{font-size:2.2rem;display:block;margin-bottom:10px}
+.drawer footer{border-top:1px solid var(--line);padding:20px;display:grid;gap:12px}
+.row{display:flex;justify-content:space-between;font-variant-numeric:tabular-nums}
+.row.total{font-family:var(--display);font-size:1.15rem;color:var(--gold)}
+.ship{font-size:.82rem;color:var(--muted)}
+.notice{background:var(--plum);border:1px solid var(--line);border-radius:10px;padding:12px 14px;font-size:.88rem;color:var(--fg)}
+
+/* toast */
+.toast{position:fixed;left:50%;bottom:calc(24px + env(safe-area-inset-bottom,0px));transform:translateX(-50%);background:var(--fg);color:var(--ink);padding:12px 20px;border-radius:999px;font-weight:700;font-size:.9rem;z-index:50;box-shadow:0 10px 30px rgba(0,0,0,.4);max-width:calc(100% - 32px)}
+
+/* footer */
+footer.site{border-top:1px solid var(--line);padding-block:48px 32px;background:var(--velvet);margin-top:40px}
+.fgrid{display:grid;grid-template-columns:1.4fr 1fr 1fr 1.2fr;gap:28px}
+.fgrid h4{font-family:var(--display);font-size:.78rem;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);margin:0 0 12px}
+.fgrid a{display:block;color:var(--muted);text-decoration:none;font-size:.92rem;padding:3px 0}
+.fgrid a:hover{color:var(--fg)}
+.fgrid p{color:var(--muted);font-size:.9rem}
+.news{display:flex;gap:8px;margin-top:10px}
+.news input{flex:1;min-width:0;background:var(--ink);border:1px solid var(--line);color:var(--fg);border-radius:999px;padding:10px 14px;font:inherit;font-size:.9rem}
+.legal{margin-top:36px;padding-top:20px;border-top:1px solid var(--line);display:flex;flex-wrap:wrap;gap:10px;justify-content:space-between;color:var(--muted);font-size:.8rem}
+@media (max-width:820px){.fgrid{grid-template-columns:1fr 1fr}}
+@media (max-width:460px){.fgrid{grid-template-columns:1fr}}
+
+/* donate */
+.donate-nav{color:var(--pink)!important}
+.give{display:grid;grid-template-columns:1fr 1.1fr;gap:40px;align-items:start}
+.give .why p{color:var(--muted);max-width:56ch}
+.give .why p+p{margin-top:14px}
+.impact{list-style:none;padding:0;margin:22px 0 0;display:grid;gap:10px}
+.impact li{display:grid;grid-template-columns:72px 1fr;gap:12px;align-items:baseline;padding-bottom:10px;border-bottom:1px solid var(--line)}
+.impact b{font-family:var(--display);color:var(--gold);font-variant-numeric:tabular-nums}
+.impact span{color:var(--muted);font-size:.93rem}
+.dbox{background:var(--velvet);border:1px solid var(--gold-dim);border-radius:var(--r);padding:clamp(20px,3vw,32px);display:flex;flex-direction:column;gap:18px;min-width:0;box-shadow:0 30px 70px -40px rgba(236,79,159,.5)}
+.freq{display:grid;grid-template-columns:1fr 1fr;background:var(--ink);border:1px solid var(--line);border-radius:999px;padding:4px}
+.freq button{background:transparent;border:0;color:var(--muted);border-radius:999px;padding:10px;font-family:var(--display);font-size:.78rem;letter-spacing:.14em;text-transform:uppercase}
+.freq button[aria-pressed="true"]{background:var(--pink);color:#fff}
+.amt-big{display:flex;align-items:center;justify-content:center;gap:14px}
+.amt-big output{font-family:var(--display);font-size:clamp(2.6rem,7vw,3.6rem);color:var(--gold);font-variant-numeric:tabular-nums;min-width:5ch;text-align:center;line-height:1}
+.step-btn{width:46px;height:46px;border-radius:50%;border:1px solid var(--gold-dim);background:transparent;color:var(--gold);font-size:1.4rem;flex:none}
+.step-btn:hover{background:rgba(224,189,115,.1)}
+.step-btn:disabled{opacity:.35;cursor:default}
+.range{width:100%;accent-color:var(--pink)}
+.range-ends{display:flex;justify-content:space-between;font-size:.78rem;color:var(--muted);font-variant-numeric:tabular-nums;margin-top:-10px}
+.presets{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}
+.presets button{background:transparent;border:1px solid var(--line);color:var(--fg);border-radius:10px;padding:10px 4px;font-family:var(--display);font-size:.95rem;font-variant-numeric:tabular-nums}
+.presets button:hover{border-color:var(--gold-dim)}
+.presets button[aria-pressed="true"]{background:var(--gold);color:#26101f;border-color:var(--gold);font-weight:700}
+.dfield{display:flex;flex-direction:column;gap:6px;font-size:.85rem;color:var(--muted)}
+.dfield select{border-radius:10px;width:100%}
+.dnote{font-size:.8rem;color:var(--muted);text-align:center}
+.dline{min-height:1.4em;text-align:center;color:var(--fg);font-size:.95rem}
+.donate-band{background:linear-gradient(120deg,var(--plum),var(--velvet));border-block:1px solid var(--line)}
+.donate-band .wrap{display:grid;grid-template-columns:1.3fr 1fr;gap:28px;align-items:center}
+.donate-band .presets{grid-template-columns:repeat(4,1fr)}
+@media (max-width:820px){.give,.donate-band .wrap{grid-template-columns:1fr}}
+@media (max-width:400px){.presets{grid-template-columns:repeat(2,1fr)}}
+
+.view{animation:rise .5s ease both}
+@keyframes rise{from{opacity:.4;transform:translateY(8px)}to{opacity:1;transform:none}}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
+</style>
+</head>
+<body>
+<div class="safety" role="region" aria-label="Safety resources">
+  <div class="wrap">
+    <span>In danger? Call <strong>911</strong>. National Domestic Violence Hotline: <strong>1-800-799-7233</strong> · text <strong>START</strong> to <strong>88788</strong></span>
+    <a class="exit" id="quickExit" href="https://www.google.com/search?q=weather+today" target="_blank" rel="noopener" title="Leave this site quickly (or press Esc twice)">Quick exit ✕</a>
+  </div>
+</div>
+
+<header class="site">
+  <div class="wrap">
+    <a class="logo" href="#home" aria-label="Cho1sen Healing Center home"><b>Cho<span class="one">1</span>sen</b><small>HEALING CENTER</small></a>
+    <nav class="main" aria-label="Main">
+      <a href="#home" data-nav="home">Home</a>
+      <a href="#shop" data-nav="shop">Shop</a>
+      <a href="#mission" data-nav="mission">Our Mission</a>
+      <a href="#founder" data-nav="founder">Founder</a>
+      <a href="#donate" data-nav="donate" class="donate-nav">♥ Donate</a>
+    </nav>
+    <button class="cart-btn" id="openCart" aria-label="Open cart">Cart <span class="count" id="cartCount">0</span></button>
+  </div>
+</header>
+
+<main id="app"></main>
+
+<footer class="site">
+  <div class="wrap">
+    <div class="fgrid">
+      <div>
+        <a class="logo" href="#home"><b>Cho<span class="one">1</span>sen</b><small>HEALING CENTER™</small></a>
+        <p style="margin-top:14px">We help women and children coming from domestic violence situations. Healing, hope and wholeness, founded by Dayna Laurette Broussard.</p>
+      </div>
+      <div>
+        <h4>Shop</h4>
+        <a href="#shop">All products</a>
+        <a href="#p-journal">90-Day Healing Journal</a>
+        <a href="#p-giftbox">Healing Gift Box</a>
+        <a href="#p-experience">Cho1sen Experience Box</a>
+        <a href="#p-founders">Founder's Limited Edition</a>
+      </div>
+      <div>
+        <h4>Center</h4>
+        <a href="#mission">Our mission</a>
+        <a href="#founder">Meet the founder</a>
+        <a href="#mission">Events &amp; programs</a>
+        <a href="#mission">Sisterhood</a>
+        <a href="#donate">Donate</a>
+      </div>
+      <div>
+        <h4>Daily affirmations</h4>
+        <p>One short word of encouragement in your inbox each week.</p>
+        <form class="news" id="newsForm">
+          <label for="newsEmail" class="sr" style="position:absolute;left:-9999px">Email</label>
+          <input id="newsEmail" type="email" required placeholder="Your email">
+          <button class="add" type="submit">Join</button>
+        </form>
+        <p id="newsMsg" class="ship" hidden style="margin-top:8px"></p>
+      </div>
+    </div>
+    <div class="legal">
+      <span>© 2026 Cho1sen Healing Center. All rights reserved.</span>
+      <span class="script" style="font-size:1.5rem;color:var(--gold)">Heal. Reflect. Grow. Become. Cho1sen.</span>
+    </div>
+  </div>
+</footer>
+
+<div class="scrim" id="scrim" hidden></div>
+<aside class="drawer" id="drawer" hidden aria-label="Your cart" role="dialog" aria-modal="true">
+  <header><h2>Your Cart</h2><button class="x" id="closeCart" aria-label="Close cart">×</button></header>
+  <div class="lines" id="lines"></div>
+  <footer id="cartFoot"></footer>
+</aside>
+<div class="toast" id="toast" hidden role="status"></div>
+
+<script>
+const PRODUCTS = [
+  { id:"journal", name:"90-Day Healing Journal", cat:"journal", catLabel:"Journal", price:39.99, img:"img/journal.jpg",
+    badge:"Bestseller",
+    blurb:"A journey from pain to purpose. A 90-day devotional journal for healing, restoration and a new beginning.",
+    desc:"Written by founder Dayna Laurette Broussard, this spiral-bound devotional walks with you for 90 days. Each day brings scripture-rooted reflection and space to write, so you can heal, restore, forgive, become whole and walk in purpose.",
+    includes:["90 days of guided devotionals","Faith, Healing & Self Love","Breaking Cycles & Purpose","A New Beginning","Spiral bound, lays flat as you write","Written by Dayna Laurette Broussard"] },
+  { id:"giftbox", name:"Healing Gift Box", cat:"gift", catLabel:"Gift Set", price:79.99, img:"img/giftbox.jpg",
+    blurb:"The journal plus everyday comforts to keep your healing close: tumbler, candle, pen and 30 affirmation cards.",
+    desc:"A beautiful starter set for yourself or a sister who is rebuilding. Everything she needs to begin her 90 days, wrapped and ready to give.",
+    includes:["90-Day Healing Journal","Cho1sen Tumbler","Luxury Pen","Bookmark","Affirmation/Prayer Cards (30)","Healing Candle","Beautiful Gift Box"] },
+  { id:"experience", name:"Cho1sen Experience Box", cat:"gift", catLabel:"Gift Set", price:149.99, img:"img/experience.jpg",
+    badge:"Most loved",
+    blurb:"The full experience: journal, Cho1sen tee or sweatshirt, prayer booklet, butterfly bracelet and more.",
+    desc:"Wear your healing and carry it with you. The Experience Box adds a Cho1sen top, a Prayer & Reflection booklet and a butterfly bracelet to the essentials.",
+    includes:["90-Day Healing Journal","Cho1sen T-shirt or Sweatshirt","Cho1sen Tumbler","Luxury Pen","Bookmark","Affirmation/Prayer Cards (30)","Healing Candle","Prayer & Reflection Booklet","Butterfly Bracelet (or keepsake jewelry)","Beautiful Gift Box"],
+    options:{ "Top":["T-shirt","Sweatshirt"], "Size":["S","M","L","XL","2X","3X"] } },
+  { id:"founders", name:"Founder's Limited Edition", cat:"gift", catLabel:"Limited Edition", price:299.99, img:"img/founders.jpg",
+    badge:"Limited", badgePink:true,
+    blurb:"Everything in the collection, including the hand-designed Cho1sen Letterman Jacket. Limited quantities.",
+    desc:"The complete collection, curated by Dayna herself. Centered on the Cho1sen Letterman Jacket, with crystal crown, butterflies and a sleeve that reads Faith, Healing, Self Love, Breaking Cycles, Purpose, A New Beginning.",
+    includes:["90-Day Healing Journal","Cho1sen Letterman Jacket","Cho1sen T-shirt or Sweatshirt","Cho1sen Tumbler","Luxury Pen","Bookmark","Affirmation/Prayer Cards (30)","Healing Candle","Prayer & Reflection Booklet","Butterfly Bracelet (or keepsake jewelry)","Luxury Gift Box"],
+    options:{ "Jacket size":["S","M","L","XL","2X","3X"], "Top":["T-shirt","Sweatshirt"], "Top size":["S","M","L","XL","2X","3X"] } },
+  { id:"jacket", name:"Cho1sen Letterman Jacket", cat:"apparel", catLabel:"Apparel", price:null, img:"img/jacket.jpg",
+    badge:"Founder's Edition only",
+    blurb:"Wear your healing. Walk with purpose. Currently available only in the Founder's Limited Edition.",
+    desc:"Black letterman jacket with pink stripes, a crystal Cho1sen crown and butterflies. The back tells the story of the journal; the left sleeve carries a crystal cross and the words Faith, Healing, Self Love, Breaking Cycles, Purpose, A New Beginning.",
+    includes:["Heal · Reflect · Grow · Become on the front","Crystal crown and butterfly embellishments","Illustrated back panel","Cross and affirmation sleeve"],
+    linkTo:"founders" }
+];
+
+const money = n => "$" + n.toFixed(2);
+const byId = id => PRODUCTS.find(p => p.id === id);
+const $ = s => document.querySelector(s);
+const app = $("#app");
+
+/* ---------- cart state ---------- */
+let cart = [];
+try { cart = JSON.parse(localStorage.getItem("cho1sen-cart") || "[]"); } catch(e) { cart = []; }
+function save(){ try { localStorage.setItem("cho1sen-cart", JSON.stringify(cart)); } catch(e){} renderCart(); }
+function addToCart(id, qty=1, variant=""){
+  const p = byId(id); if(!p || p.price==null) return;
+  const key = id + "|" + variant;
+  const ex = cart.find(l => l.key === key);
+  if(ex) ex.qty += qty; else cart.push({key,id,variant,qty});
+  save(); toast(`Added ${p.name} to your cart`);
+}
+function addDonation(amount, monthly){
+  const variant = monthly ? "Monthly gift" : "One-time gift";
+  const key = "donation|" + variant + "|" + amount;
+  const ex = cart.find(l => l.key === key);
+  if(ex) ex.qty += 1; else cart.push({key, id:"donation", variant, qty:1, price:amount});
+  save(); toast(`Added your ${money(amount)} ${monthly?"monthly ":""}gift`);
+}
+const linePrice = l => l.id==="donation" ? l.price : byId(l.id).price;
+const lineName = l => l.id==="donation" ? "Donation to Cho1sen Healing Center" : byId(l.id).name;
+const lineImg = l => l.id==="donation" ? "img/banner.jpg" : byId(l.id).img;
+function toast(msg){
+  const t=$("#toast"); t.textContent=msg; t.hidden=false;
+  clearTimeout(toast._t); toast._t=setTimeout(()=>t.hidden=true,2200);
+}
+
+const FREE_SHIP = 100;
+function renderCart(){
+  const n = cart.reduce((a,l)=>a+l.qty,0);
+  $("#cartCount").textContent = n;
+  const lines = $("#lines"), foot = $("#cartFoot");
+  if(!cart.length){
+    lines.innerHTML = `<div class="empty"><span class="script">Your cart is waiting</span>Begin with the journal, or choose a gift set for someone you love.<div style="margin-top:18px"><a class="btn btn-pink" href="#shop" data-close>Shop the collection</a></div></div>`;
+    foot.innerHTML = ""; return;
+  }
+  lines.innerHTML = cart.map(l=>{
+    return `<div class="line">
+      <img src="${lineImg(l)}" alt="">
+      <div><div class="nm">${lineName(l)}</div>${l.variant?`<div class="vr">${l.variant}</div>`:""}
+        <div style="display:flex;gap:10px;align-items:center;margin-top:6px">
+          <span class="qty"><button data-dec="${l.key}" aria-label="Decrease">−</button><span>${l.qty}</span><button data-inc="${l.key}" aria-label="Increase">+</button></span>
+          <button class="rm" data-rm="${l.key}">Remove</button></div></div>
+      <div class="lp">${money(linePrice(l)*l.qty)}</div></div>`;
+  }).join("");
+  const sub = cart.filter(l=>l.id!=="donation").reduce((a,l)=>a+linePrice(l)*l.qty,0);
+  const gift = cart.filter(l=>l.id==="donation").reduce((a,l)=>a+linePrice(l)*l.qty,0);
+  const left = FREE_SHIP - sub;
+  foot.innerHTML = `
+    ${sub?`<div class="row"><span>Products</span><span>${money(sub)}</span></div>
+    <div class="ship">${left>0?`Add ${money(left)} more for free shipping.`:"You've earned free shipping."}</div>`:""}
+    ${gift?`<div class="row"><span>Donation</span><span>${money(gift)}</span></div>`:""}
+    <div class="row total"><span>Total</span><span>${money(sub+gift)}</span></div>
+    <button class="btn btn-gold" id="checkout">Checkout</button>
+    <div class="notice" id="checkoutNote" hidden>Online checkout opens soon. Payments are not connected on this preview store yet, so no order has been placed and no card was charged.</div>`;
+  $("#checkout").onclick = ()=>{ $("#checkoutNote").hidden=false; };
+}
+document.addEventListener("click", e=>{
+  const t=e.target.closest("[data-inc],[data-dec],[data-rm],[data-add],[data-close]");
+  if(!t) return;
+  if(t.dataset.inc){ cart.find(l=>l.key===t.dataset.inc).qty++; save(); }
+  if(t.dataset.dec){ const l=cart.find(l=>l.key===t.dataset.dec); l.qty--; if(l.qty<1) cart=cart.filter(x=>x!==l); save(); }
+  if(t.dataset.rm){ cart=cart.filter(l=>l.key!==t.dataset.rm); save(); }
+  if(t.dataset.add){
+    const p=byId(t.dataset.add);
+    if(p.options){ location.hash="p-"+p.id; return; } // needs a size choice first
+    addToCart(p.id);
+  }
+  if(t.dataset.close!==undefined) closeCart();
+});
+function openCart(){ $("#drawer").hidden=false; $("#scrim").hidden=false; $("#closeCart").focus(); }
+function closeCart(){ $("#drawer").hidden=true; $("#scrim").hidden=true; }
+$("#openCart").onclick=openCart; $("#closeCart").onclick=closeCart; $("#scrim").onclick=closeCart;
+
+/* ---------- views ---------- */
+function card(p){
+  const action = p.price==null
+    ? `<span class="price note">In Founder's Edition</span><a class="add ghost" href="#p-${p.linkTo}">View set</a>`
+    : `<span class="price">${money(p.price)}</span><button class="add" data-add="${p.id}">${p.options?"Choose size":"Add to cart"}</button>`;
+  return `<article class="card">
+    <a class="media" href="#p-${p.id}" aria-label="${p.name}">
+      <img src="${p.img}" alt="${p.name}" loading="lazy">
+      ${p.badge?`<span class="badge ${p.badgePink?"pink":""}">${p.badge}</span>`:""}
+    </a>
+    <div class="body">
+      <span class="cat">${p.catLabel}</span>
+      <h3><a href="#p-${p.id}">${p.name}</a></h3>
+      <p class="blurb">${p.blurb}</p>
+      <div class="foot">${action}</div>
+    </div></article>`;
+}
+
+const ICONS = {
+  lotus:'<path d="M12 20c-4 0-8-2-9-6 3 0 6 1 9 4 3-3 6-4 9-4-1 4-5 6-9 6Z"/><path d="M12 18c-2-3-2-8 0-12 2 4 2 9 0 12Z"/>',
+  heart:'<path d="M12 20s-8-5-8-11a4.5 4.5 0 0 1 8-2.5A4.5 4.5 0 0 1 20 9c0 6-8 11-8 11Z"/>',
+  book:'<path d="M3 5h7a2 2 0 0 1 2 2v13a2 2 0 0 0-2-2H3Z"/><path d="M21 5h-7a2 2 0 0 0-2 2v13a2 2 0 0 1 2-2h7Z"/>',
+  pray:'<path d="M12 3v10l-3 4v4M12 3v10l3 4v4"/><path d="M9 17l-3-2V9M15 17l3-2V9"/>',
+  leaf:'<path d="M5 19c0-9 6-14 15-14 0 9-5 15-14 15Z"/><path d="M5 19 14 10"/>',
+  gem:'<path d="M6 4h12l3 5-9 11L3 9Z"/><path d="M3 9h18M9 4l3 16 3-16"/>',
+  cal:'<rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/>',
+  sun:'<circle cx="12" cy="12" r="4"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3M5 5l2 2M17 17l2 2M5 19l2-2M17 7l2-2"/>'
+};
+const PILLARS = [
+  ["lotus","Healing Conversations","Safe, guided circles where your story is heard without judgment."],
+  ["heart","Sisterhood","A community of women who understand, because they have walked it too."],
+  ["book","Educational Resources","Clear information on safety planning, recognizing abuse and rebuilding."],
+  ["pray","Prayer & Faith","Faith-centered support for the spirit as well as the heart."],
+  ["leaf","Personal Growth","Tools to break cycles and set healthy boundaries for the next season."],
+  ["gem","Empowerment","Confidence, skills and purpose for women and the children they protect."],
+  ["cal","Events & Programs","Workshops, retreats and gatherings throughout the year."],
+  ["sun","A Brighter Future","Healed. Whole. Called. Crowned. The road ahead is yours."]
+];
+const pillarsHTML = () => `<div class="pillars">${PILLARS.map(([i,h,p])=>`<div class="pillar"><svg viewBox="0 0 24 24" aria-hidden="true">${ICONS[i]}</svg><h3>${h}</h3><p>${p}</p></div>`).join("")}</div>`;
+
+const calloutHTML = () => `<section><div class="wrap"><div class="callout">
+  <div class="big">No abuse<br>is OK.</div>
+  <div>
+    <p style="margin-bottom:16px;color:var(--fg)">If you or your children are not safe, help is available any time, day or night. Free and confidential.</p>
+    <ul>
+      <li><b>911</b><span>If you are in immediate danger</span></li>
+      <li><b>1-800-799-7233</b><span>National Domestic Violence Hotline, 24/7</span></li>
+      <li><b>Text START to 88788</b><span>If it is not safe to talk</span></li>
+    </ul>
+  </div></div></div></section>`;
+
+/* ---------- donate ---------- */
+const D_MIN=10, D_MAX=1000, D_STEP=10;
+const PRESETS=[10,20,30,50,100,250,500,1000];
+let dAmt=50, dMonthly=false;
+function impactFor(a){
+  if(a<40)  return "helps provide affirmation cards and journaling supplies for a woman beginning her healing.";
+  if(a<80)  return "can give a 90-Day Healing Journal to a woman starting over.";
+  if(a<150) return "can give a Healing Gift Box to a survivor rebuilding her life.";
+  if(a<300) return "can give a full Cho1sen Experience Box to a woman and her family.";
+  return "helps fund healing conversations, sisterhood circles and programs for women and children.";
+}
+function donateBox(){
+  return `<form class="dbox" id="donateForm" aria-label="Make a donation">
+    <div class="freq" role="group" aria-label="How often">
+      <button type="button" data-freq="once" aria-pressed="${!dMonthly}">One-time</button>
+      <button type="button" data-freq="monthly" aria-pressed="${dMonthly}">Monthly</button>
+    </div>
+    <div class="amt-big">
+      <button type="button" class="step-btn" id="dMinus" aria-label="Decrease by $10">−</button>
+      <output id="dOut" for="dRange" aria-live="polite">$${dAmt}</output>
+      <button type="button" class="step-btn" id="dPlus" aria-label="Increase by $10">+</button>
+    </div>
+    <input class="range" type="range" id="dRange" min="${D_MIN}" max="${D_MAX}" step="${D_STEP}" value="${dAmt}" aria-label="Donation amount">
+    <div class="range-ends"><span>$10</span><span>$1,000</span></div>
+    <div class="presets" id="dPresets">${PRESETS.map(v=>`<button type="button" data-amt="${v}" aria-pressed="${v===dAmt}">$${v.toLocaleString()}</button>`).join("")}</div>
+    <label class="dfield" for="dSelect">Or choose any amount
+      <select id="dSelect">${Array.from({length:(D_MAX-D_MIN)/D_STEP+1},(_,i)=>D_MIN+i*D_STEP).map(v=>`<option value="${v}" ${v===dAmt?"selected":""}>$${v.toLocaleString()}</option>`).join("")}</select>
+    </label>
+    <p class="dline" id="dImpact"></p>
+    <button class="btn btn-pink" type="submit" id="dSubmit">Give $${dAmt}</button>
+    <p class="dnote">Gifts from $10 to $1,000, in $10 steps.</p>
+  </form>`;
+}
+function bindDonate(){
+  const f=$("#donateForm"); if(!f) return;
+  const out=$("#dOut"), rng=$("#dRange"), sel=$("#dSelect"), sub=$("#dSubmit"), imp=$("#dImpact");
+  const set=v=>{
+    dAmt=Math.min(D_MAX,Math.max(D_MIN,Math.round(v/D_STEP)*D_STEP));
+    out.textContent="$"+dAmt.toLocaleString(); rng.value=dAmt; sel.value=dAmt;
+    sub.textContent=`Give $${dAmt.toLocaleString()}${dMonthly?" monthly":""}`;
+    imp.textContent=`$${dAmt.toLocaleString()}${dMonthly?" a month":""} ${impactFor(dAmt)}`;
+    $("#dMinus").disabled=dAmt<=D_MIN; $("#dPlus").disabled=dAmt>=D_MAX;
+    f.querySelectorAll("[data-amt]").forEach(b=>b.setAttribute("aria-pressed", +b.dataset.amt===dAmt));
+  };
+  $("#dMinus").onclick=()=>set(dAmt-D_STEP);
+  $("#dPlus").onclick=()=>set(dAmt+D_STEP);
+  rng.oninput=()=>set(+rng.value);
+  sel.onchange=()=>set(+sel.value);
+  $("#dPresets").onclick=e=>{const b=e.target.closest("[data-amt]"); if(b) set(+b.dataset.amt);};
+  f.querySelectorAll("[data-freq]").forEach(b=>b.onclick=()=>{
+    dMonthly=b.dataset.freq==="monthly";
+    f.querySelectorAll("[data-freq]").forEach(x=>x.setAttribute("aria-pressed", x===b)); set(dAmt);
+  });
+  f.onsubmit=e=>{e.preventDefault(); addDonation(dAmt,dMonthly); openCart();};
+  set(dAmt);
+}
+
+const views = {
+  donate(){
+    return `<section><div class="wrap give">
+      <div class="why">
+        <span class="eyebrow">Give hope</span>
+        <h2 style="margin-top:8px">Help a woman walk from survival to purpose</h2>
+        <p style="margin-top:16px">Your gift goes straight to Cho1sen Healing Center's work with women and children coming out of domestic violence: healing conversations, sisterhood, faith support and programs that build a brighter future.</p>
+        <p>Choose any amount from $10 to $1,000. Give once, or become a monthly partner.</p>
+        <ul class="impact">
+          <li><b>$10–30</b><span>Affirmation cards and journaling supplies</span></li>
+          <li><b>$40</b><span>A 90-Day Healing Journal for a woman starting over</span></li>
+          <li><b>$80</b><span>A Healing Gift Box for a survivor</span></li>
+          <li><b>$150</b><span>A Cho1sen Experience Box for a woman and her family</span></li>
+          <li><b>$300+</b><span>Healing circles, events and programs</span></li>
+        </ul>
+      </div>
+      ${donateBox()}
+    </div></section>${calloutHTML()}`;
+  },
+
+  home(){
+    return `
+    <section class="hero"><div class="wrap">
+      <div class="banner"><img src="img/banner.jpg" alt="Cho1sen Healing Center: Healing, Hope, Wholeness. We help women and children coming from domestic violence situations."></div>
+      <div class="hero-copy">
+        <div>
+          <span class="eyebrow">Healing · Hope · Wholeness</span>
+          <h1 style="margin-top:10px">From survival <em>to purpose.</em></h1>
+          <p class="lede">Every purchase supports Cho1sen Healing Center's work with women and children coming out of domestic violence. Start your 90 days today, or send a gift of healing to someone you love.</p>
+          <div class="hero-ctas"><a class="btn btn-pink" href="#shop">Shop the collection</a><a class="btn btn-ghost" href="#mission">Our mission</a></div>
+        </div>
+        <div class="affirm"><span class="script">Healed. Whole.<br>Called. Crowned.</span><small>Now available. In stores and on Amazon since October 1st.</small></div>
+      </div>
+    </div></section>
+
+    <section style="padding-top:28px"><div class="wrap">
+      <div class="sec-head"><div><span class="eyebrow">The collection</span><h2 style="margin-top:8px">Choose your healing experience</h2></div>
+        <p>From the journal on its own to the Founder's Limited Edition, each set begins with the same 90-day devotional.</p></div>
+      <div class="grid">${PRODUCTS.map(card).join("")}</div>
+    </div></section>
+
+    <section class="journey"><div class="wrap">
+      <div class="sec-head"><div><span class="eyebrow">How the 90 days unfold</span><h2 style="margin-top:8px">A journey from pain to purpose</h2></div></div>
+      <div class="steps">
+        <div class="step"><span class="n">STEP 1</span><span class="script">Heal</span><p>Name what happened and let God meet you there. Daily devotionals give the hurt a safe place to land.</p></div>
+        <div class="step"><span class="n">STEP 2</span><span class="script">Reflect</span><p>Write it out. Prompts help you see patterns, forgive, and begin breaking cycles.</p></div>
+        <div class="step"><span class="n">STEP 3</span><span class="script">Grow</span><p>Practice self love, set boundaries and rebuild trust in your own voice.</p></div>
+        <div class="step"><span class="n">STEP 4</span><span class="script">Become</span><p>Step into purpose and a new beginning. You were chosen for this. Cho1sen.</p></div>
+      </div>
+    </div></section>
+
+    <section><div class="wrap spot">
+      <div class="pics"><img src="img/jacket.jpg" alt="Cho1sen Letterman Jacket, front and back"><img src="img/sleeves.jpg" alt="Jacket sleeves with crystal cross and butterflies"></div>
+      <div>
+        <span class="eyebrow">Founder's Limited Edition</span>
+        <h2 style="margin-top:8px">Wear your healing. Walk with purpose.</h2>
+        <p style="color:var(--muted);margin-top:14px">The Cho1sen Letterman Jacket is the centerpiece of the Founder's Limited Edition: crystal crown, pink butterflies, and your journey stitched down the sleeve.</p>
+        <ul><li>Faith · Healing · Self Love</li><li>Breaking Cycles · Purpose</li><li>A New Beginning</li></ul>
+        <div class="hero-ctas"><a class="btn btn-gold" href="#p-founders">Shop the Founder's Edition · $299.99</a></div>
+      </div>
+    </div></section>
+
+    <section style="padding-top:0"><div class="wrap">
+      <div class="sec-head"><div><span class="eyebrow">Cho1sen Healing Center</span><h2 style="margin-top:8px">More than a journal</h2></div>
+        <p>The shop funds the center's programs for women and children. Here is what that support makes possible.</p></div>
+      ${pillarsHTML()}
+    </div></section>
+    <section class="donate-band"><div class="wrap">
+      <div>
+        <span class="eyebrow">Give hope</span>
+        <h2 style="margin-top:8px">Donate to Cho1sen Healing Center</h2>
+        <p style="color:var(--muted);margin-top:14px;max-width:52ch">Not shopping today? A gift of any size, from $10 to $1,000, helps women and children leaving domestic violence heal and rebuild.</p>
+        <span class="script" style="font-size:2.2rem;display:block;margin-top:18px;color:var(--gold)">No abuse is OK.</span>
+      </div>
+      ${donateBox()}
+    </div></section>
+    ${calloutHTML()}`;
+  },
+
+  shop(){
+    return `<section><div class="wrap">
+      <div class="sec-head"><div><span class="eyebrow">Shop</span><h2 style="margin-top:8px">The Cho1sen Collection</h2></div>
+        <p>Free shipping on orders over $100. Every set is gift-ready.</p></div>
+      <div class="toolbar">
+        <div class="chips" id="chips">
+          <button class="chip" data-f="all" aria-pressed="true">All</button>
+          <button class="chip" data-f="journal" aria-pressed="false">Journal</button>
+          <button class="chip" data-f="gift" aria-pressed="false">Gift sets</button>
+          <button class="chip" data-f="apparel" aria-pressed="false">Apparel</button>
+        </div>
+        <label style="display:flex;gap:8px;align-items:center;font-size:.85rem;color:var(--muted)">Sort
+          <select id="sort"><option value="feat">Featured</option><option value="lo">Price: low to high</option><option value="hi">Price: high to low</option></select></label>
+      </div>
+      <div class="grid" id="shopGrid"></div>
+    </div></section>`;
+  },
+
+  mission(){
+    return `<section><div class="wrap">
+      <div class="sec-head"><div><span class="eyebrow">Our mission</span><h2 style="margin-top:8px">Healing, hope and wholeness</h2></div>
+        <p>Cho1sen Healing Center helps women and children coming from domestic violence situations find safety, community and a brighter future, rooted in faith.</p></div>
+      ${pillarsHTML()}
+      <div class="hero-ctas" style="margin-top:32px"><a class="btn btn-pink" href="#shop">Support the mission: shop</a></div>
+    </div></section>${calloutHTML()}`;
+  },
+
+  founder(){
+    return `<section><div class="wrap founder">
+      <img src="img/founder.jpg" alt="Dayna Laurette Broussard holding the Cho1sen Healing Journal in Times Square">
+      <div class="text">
+        <span class="eyebrow">Meet the founder</span>
+        <h2 style="margin-top:8px">Dayna Laurette Broussard</h2>
+        <p style="margin-top:16px">Dayna founded Cho1sen Healing Center to give women and children leaving domestic violence what every survivor deserves: a safe place to be heard, a sisterhood that understands, and a faith-filled path forward.</p>
+        <p>She wrote the 90-Day Healing Journal as the companion she wished she had. It is a daily walk through faith, healing, self love, breaking cycles and purpose, toward a new beginning.</p>
+        <div class="sig">Dayna Laurette Broussard</div>
+        <div class="hero-ctas"><a class="btn btn-pink" href="#p-journal">Get the journal · $39.99</a></div>
+      </div>
+    </div></section>`;
+  },
+
+  product(id){
+    const p = byId(id);
+    if(!p) return `<section><div class="wrap"><a class="back" href="#shop">← Back to shop</a><h2>We couldn't find that product.</h2></div></section>`;
+    const opts = p.options ? `<div class="opts">${Object.entries(p.options).map(([k,v],i)=>`
+      <label class="opt" for="opt${i}">${k}<select id="opt${i}" data-opt="${k}">${v.map(x=>`<option>${x}</option>`).join("")}</select></label>`).join("")}</div>` : "";
+    const buy = p.price==null
+      ? `<div class="notice">Available only as part of the Founder's Limited Edition.</div><div class="buy"><a class="btn btn-gold" href="#p-${p.linkTo}">Shop Founder's Edition · $299.99</a></div>`
+      : `${opts}<div class="buy"><span class="qty"><button id="qm" aria-label="Decrease quantity">−</button><span id="qv">1</span><button id="qp" aria-label="Increase quantity">+</button></span>
+         <button class="btn btn-pink" id="addBtn">Add to cart · ${money(p.price)}</button></div>`;
+    const more = PRODUCTS.filter(x=>x.id!==p.id).slice(0,3);
+    return `<section><div class="wrap">
+      <a class="back" href="#shop">← Back to shop</a>
+      <div class="pd">
+        <div class="gallery"><img src="${p.img}" alt="${p.name}"></div>
+        <div class="info">
+          <span class="eyebrow">${p.catLabel}</span>
+          <h1>${p.name}</h1>
+          ${p.price!=null?`<div class="price">${money(p.price)}</div>`:""}
+          <p class="desc">${p.desc}</p>
+          <h4>${p.cat==="journal"||p.cat==="apparel"?"Details":"What's inside"}</h4>
+          <ul class="incl">${p.includes.map(i=>`<li>${i}</li>`).join("")}</ul>
+          ${buy}
+          <p class="ship">Free shipping over $100 · Gift-ready packaging</p>
+        </div>
+      </div>
+    </div></section>
+    <section style="padding-top:0"><div class="wrap">
+      <div class="sec-head"><h2>You may also love</h2></div>
+      <div class="grid">${more.map(card).join("")}</div>
+    </div></section>`;
+  }
+};
+
+let filter="all", sortBy="feat";
+function drawShop(){
+  let list = PRODUCTS.filter(p=>filter==="all"||p.cat===filter);
+  if(sortBy!=="feat") list = [...list].sort((a,b)=>((a.price??1e9)-(b.price??1e9))*(sortBy==="lo"?1:-1));
+  $("#shopGrid").innerHTML = list.map(card).join("");
+}
+
+function route(){
+  const h = (location.hash||"#home").slice(1);
+  let key = h, html;
+  if(h.startsWith("p-")){ key="shop"; html = views.product(h.slice(2)); }
+  else if(views[h] && h!=="product"){ html = views[h](); }
+  else { key="home"; html = views.home(); }
+  app.innerHTML = `<div class="view">${html}</div>`;
+  document.querySelectorAll("[data-nav]").forEach(a=>{ if(a.dataset.nav===key) a.setAttribute("aria-current","page"); else a.removeAttribute("aria-current"); });
+  closeCart();
+  window.scrollTo(0,0);
+
+  bindDonate();
+  if(h==="shop"){
+    drawShop();
+    $("#chips").onclick=e=>{const b=e.target.closest(".chip"); if(!b) return; filter=b.dataset.f;
+      document.querySelectorAll(".chip").forEach(c=>c.setAttribute("aria-pressed", c===b)); drawShop(); };
+    $("#sort").onchange=e=>{ sortBy=e.target.value; drawShop(); };
+  }
+  if(h.startsWith("p-") && $("#addBtn")){
+    let q=1; const qv=$("#qv");
+    $("#qm").onclick=()=>{ q=Math.max(1,q-1); qv.textContent=q; };
+    $("#qp").onclick=()=>{ q++; qv.textContent=q; };
+    $("#addBtn").onclick=()=>{
+      const variant=[...document.querySelectorAll("[data-opt]")].map(s=>`${s.dataset.opt}: ${s.value}`).join(" · ");
+      addToCart(h.slice(2), q, variant); openCart();
+    };
+  }
+}
+window.addEventListener("hashchange", route);
+
+/* quick exit: hide the page immediately as well as opening a neutral site */
+function quickExit(){ document.body.innerHTML = '<div style="padding:40px;font-family:system-ui;color:#222;background:#fff;min-height:100vh">Weather</div>'; document.body.style.background="#fff"; }
+$("#quickExit").addEventListener("click", quickExit);
+let lastEsc=0;
+document.addEventListener("keydown", e=>{
+  if(e.key!=="Escape") return;
+  if(!$("#drawer").hidden){ closeCart(); return; }
+  const now=Date.now(); if(now-lastEsc<600){ quickExit(); } lastEsc=now;
+});
+
+$("#newsForm").addEventListener("submit", e=>{
+  e.preventDefault(); const m=$("#newsMsg");
+  m.textContent="Thank you. Newsletter sign-up connects once your email service is set up, so this address hasn't been saved yet.";
+  m.hidden=false;
+});
+
+renderCart(); route();
+</script>
+</body>
+</html>
